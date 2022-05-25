@@ -20,7 +20,12 @@ async function startApolloServer(typeDefs, resolvers) {
 
   const server = new ApolloServerExpress({
     schema,
-    plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
+    plugins: [
+      ApolloServerPluginDrainHttpServer({ httpServer }),
+      ApolloServerPluginLandingPageGraphQLPlayground()
+    ],
+    introspection: true,
+    playground: true,
     context: ({ req }) => {
       return { req };
     }
@@ -43,8 +48,7 @@ async function startApolloServer(typeDefs, resolvers) {
     ]
   })
   devServer.listen(parseInt(port) + 1, '0.0.0.0').then(({ url }) => {
-    console.log(`🚀 [Gateway - Backend Dev Only, not used on apps] GraphQL DEV API ready at ${url}`)
-    // console.log(`🚀 [GraphQL API - Backend Dev Only, not used on apps] ready at ${subscriptionsUrl}`);
+    console.log(`🚀 [Gateway - Backend Dev Only, not used on apps] GraphQL DEV API ready at ${url}`);
   })
 }
 
