@@ -1,5 +1,5 @@
 require('dotenv').config();
-const { ApolloServer } = require('apollo-server')
+// const { ApolloServer } = require('apollo-server')
 const { ApolloServer: ApolloServerExpress } = require('apollo-server-express');
 const { ApolloServerPluginDrainHttpServer, ApolloServerPluginLandingPageGraphQLPlayground } = require('apollo-server-core');
 const express = require('express');
@@ -37,19 +37,19 @@ async function startApolloServer(typeDefs, resolvers) {
   await new Promise(resolve => httpServer.listen(port, resolve))
   console.log(`🚀 [Gateway] Server ready at http://localhost:${port}${server.graphqlPath}`)
 
-  const devServer = new ApolloServer({
-    schema,
-    context: async () => {
-      return { req: { session: {} } }
-    },
-    introspection: true,
-    plugins: [
-      ApolloServerPluginLandingPageGraphQLPlayground()
-    ]
-  })
-  devServer.listen(parseInt(port) + 1, '0.0.0.0').then(({ url }) => {
-    console.log(`🚀 [Gateway - Backend Dev Only, not used on apps] GraphQL DEV API ready at ${url}`);
-  })
+  // const devServer = new ApolloServer({
+  //   schema,
+  //   context: async () => {
+  //     return { req: { session: {} } }
+  //   },
+  //   introspection: true,
+  //   plugins: [
+  //     ApolloServerPluginLandingPageGraphQLPlayground()
+  //   ]
+  // })
+  // devServer.listen(parseInt(port) + 1, '0.0.0.0').then(({ url }) => {
+  //   console.log(`🚀 [Gateway - Backend Dev Only, not used on apps] GraphQL DEV API ready at ${url}`);
+  // })
 }
 
 startApolloServer(typeDefs, resolvers).then();
