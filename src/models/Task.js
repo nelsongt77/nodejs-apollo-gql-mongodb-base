@@ -6,7 +6,7 @@ const schema = new db.Schema({
   name: { type: String },
   key: { type: String },
   taskListId: String,
-  reminderDate: Date,
+  reminderDate: { type: Number, default: 0 },
   backgroundColor: String,
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },

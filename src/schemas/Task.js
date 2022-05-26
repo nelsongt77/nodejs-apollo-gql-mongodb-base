@@ -9,7 +9,7 @@ module.exports = `
     name: String
     key: String
     taskListId: String
-    reminderDate: DateTime
+    reminderDate: JSONObject
     backgroundColor: String
     createdAt: DateTime
     updatedAt: DateTime
@@ -20,7 +20,7 @@ module.exports = `
     name: String
     key: String
     taskListId: String
-    reminderDate: DateTime
+    reminderDate: JSONObject
     backgroundColor: String
   }
   
