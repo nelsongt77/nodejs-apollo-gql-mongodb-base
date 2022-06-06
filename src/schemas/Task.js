@@ -1,9 +1,4 @@
 module.exports = `
-  input Options {
-    page: Int
-    limit: Int
-  }
-  
   type Task {
     _id: ID
     name: String
