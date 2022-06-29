@@ -31,7 +31,7 @@ const User_get = async (parent, { options, filter = {}, count = false }) => {
     const users = await collection
 
     for (let i = 0; i < users.length; i++) {
-      const user = users[i].toObject()
+      const user = users[i]
       user.gender = genders[user?.genderId || '1']
       user.img = `https://randomuser.me/api/portraits/${user.gender.alter}/${i+1}.jpg`
     }
