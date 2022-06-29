@@ -10,6 +10,7 @@ const schema = new db.Schema({
   phone: { type: String, default: null },
   mobile: { type: String, default: null },
   img: { type: String, default: null },
+  genderId: { type: String, default: '1' },
   isEnable: { type: Boolean, default: true },
   search_text: { type: String, default: '', index: 'text' },
   createdAt: { type: Date, default: Date.now },

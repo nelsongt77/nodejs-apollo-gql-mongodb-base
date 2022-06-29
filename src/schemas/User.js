@@ -7,15 +7,22 @@ module.exports = `
     email: String
     phone: String
     mobile: String
-    #img: String
+    img: String
+    gender: Gender
     isEnable: Boolean
     createdAt: DateTime
     updatedAt: DateTime
   }
   
+  type Gender {
+    _id: String
+    name: String
+  }
+  
   input User_filter {
     _id: ID
     search: String
+    genderId: String
     isEnable: Boolean
   }
   
@@ -27,12 +34,14 @@ module.exports = `
     email: String!
     phone: String
     mobile: String
+    genderId: String
     isEnable: Boolean
   }
   
   type Query {
     User_get(options: Options, filter: User_filter): [User]
     User_count(filter: User_filter): Int
+    User_genders: [Gender]
   }
   
   type Mutation {
