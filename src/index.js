@@ -1,7 +1,10 @@
 require('dotenv').config();
 
 const { ApolloServer: ApolloServerExpress } = require('apollo-server-express');
-const { ApolloServerPluginDrainHttpServer, ApolloServerPluginLandingPageGraphQLPlayground } = require('apollo-server-core');
+const {
+  ApolloServerPluginDrainHttpServer,
+  ApolloServerPluginLandingPageGraphQLPlayground
+} = require('apollo-server-core');
 const express = require('express');
 const { createServer } = require('http');
 const { makeExecutableSchema } = require('@graphql-tools/schema');
